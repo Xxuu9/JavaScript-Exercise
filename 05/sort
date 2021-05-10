@@ -1,0 +1,20 @@
+
+
+function getIndexToIns(arr, num) {
+  let newArr = arr.sort(compareTwoNumber);
+  for(var i = 0; i < arr.length; i ++){
+      if(num <= newArr[i]){
+        return i;
+      }
+      
+  }
+  return arr.length;
+  
+}
+
+function compareTwoNumber(a,b){
+  return a - b;
+}
+
+
+getIndexToIns([5, 3, 20,3], 5);
