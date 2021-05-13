@@ -1,0 +1,17 @@
+// 全局变量
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+  var newArray = [];
+  // 只修改这一行下面的代码
+  
+  for(let i = 0 ; i < this.length; i++){
+    newArray.push(callback(this[i]));
+  }
+  // 只修改这一行上面的代码
+  return newArray;
+};
+
+var new_s = s.myMap(function(item) {
+  return item * 2;
+});
