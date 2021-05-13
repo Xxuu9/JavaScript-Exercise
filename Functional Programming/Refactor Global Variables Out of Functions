@@ -1,0 +1,27 @@
+// 全局变量
+var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+// 修改这行下面的代码
+function add (bookArray, bookName) {
+
+  return [... bookArray, bookName];
+
+  // 修改这行上面的代码
+}
+
+// 修改这行下面的代码
+function remove (bookArray, bookName) {
+  var book_index = bookArray.indexOf(bookName);
+  if (book_index >= 0) {
+    console.log([... bookArray.slice(0, book_index), bookArray.slice(book_index+1)]);
+    return bookArray.slice(0, book_index).concat(bookArray.slice(book_index+1));
+
+    // 修改这行上面的代码
+    }
+}
+
+var newBookList = add(bookList, 'A Brief History of Time');
+var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
+var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+
+console.log(bookList);
