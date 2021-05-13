@@ -1,0 +1,33 @@
+// 全局变量
+var s = [23, 65, 98, 5];
+
+// Array.prototype.myFilter = function(callback) {
+//   // 只修改这一行下面的代码
+  
+//   var newArray = [];
+
+//   for(let i = 0 ; i < this.length; i++){
+//       if(callback(this[i])){
+//           newArray.push(this[i]);
+//       }
+//   }
+//   // 只修改这一行上面的代码
+//   return newArray;
+// };
+
+function myFilter2(callback){
+    var newArray = [];
+     for(let i = 0 ; i < this.length; i++){
+        if(callback(this[i])){
+           newArray.push(this[i]);
+      }
+   }
+   return newArray;
+};
+
+Array.prototype.myFilter = myFilter2;
+
+
+var new_s = s.myFilter(function(item) {
+  return item % 2 === 1;
+});
