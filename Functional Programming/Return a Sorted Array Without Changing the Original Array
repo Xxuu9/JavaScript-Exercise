@@ -1,0 +1,9 @@
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // 只修改这一行下面的代码
+  var tempArray = arr.slice(0);
+  return tempArray.sort((a,b)=> {return a-b});
+
+  // 只修改这一行上面的代码
+}
+nonMutatingSort(globalArray);
