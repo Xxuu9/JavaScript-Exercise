@@ -1,0 +1,19 @@
+function sumAll(arr) {
+  let startIndex, endIndex;
+  let tempArr = [];
+  if(arr[0]>arr[1]){
+    endIndex = arr[0];
+    startIndex = arr[1];
+  }else{
+    endIndex = arr[1];
+    startIndex = arr[0];
+  }
+  //console.log(startIndex, endIndex);
+  for(let i = startIndex; i <= endIndex; i ++){
+      tempArr.push(i);
+      //console.log(i);
+  }
+  //console.log(tempArr);
+  return tempArr.reduce((sum, elem) => sum + elem,0);
+}
+sumAll([4, 1]);
