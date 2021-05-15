@@ -1,0 +1,14 @@
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  
+  let tempArr = arr1.concat(arr2).sort();
+  console.log(tempArr);
+  for(var i = 0 ; i < tempArr.length; i ++){
+  if((tempArr[i] != tempArr[i+1])&&(tempArr[i] != tempArr[i-1])){
+      newArr.push(tempArr[i]);
+  }
+  }
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
