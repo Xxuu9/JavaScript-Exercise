@@ -1,0 +1,17 @@
+function fearNotLetter(str) {
+  let alphabeta = 'abcdefghijklmnopqrstuvwxyz';
+  let startIndex = alphabeta.indexOf(str[0]);
+  let endIndex = alphabeta.indexOf(str[str.length-1]);
+  let rightStr = alphabeta.slice(startIndex,endIndex+1);
+
+  for(let i = 0 ; i < str.length; i ++){
+      if(rightStr[i] != str[i]){
+          return rightStr[i];
+      }
+  }
+  //console.log(alphabeta.slice(startIndex,endIndex+1));
+  return undefined;
+}
+
+fearNotLetter("abce");
+fearNotLetter("stvwx");
