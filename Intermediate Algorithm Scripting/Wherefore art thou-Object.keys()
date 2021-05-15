@@ -1,0 +1,26 @@
+function whatIsInAName(collection, source) {
+  var arr = [];
+  // 只修改这一行下面的代码
+  function callback(elem){
+    for(var i = 0; i < Object.keys(source).length; i ++){
+        if(Object.keys(elem).indexOf(Object.keys(source)[i]) == -1||
+        Object.values(elem).indexOf(Object.values(source)[i]) == -1){
+            return false;
+        }
+    }
+    return true;
+  }
+
+  arr = collection.filter(callback);
+ 
+  // console.log(Object.keys(collection[2]), Object.keys(source));
+  // console.log(Object.keys(collection[2]).indexOf(Object.keys(source)));
+  // console.log(Object.keys(collection[2]).indexOf('last'));
+  // console.log(typeof(Object.keys(source)));
+  // console.log(arr);
+  // 只修改这一行上面的代码
+  return arr;
+}
+ 
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
