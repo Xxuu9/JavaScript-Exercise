@@ -1,0 +1,14 @@
+function spinalCase(str) {
+  let arr = str.match(/^[a-z]+|[A-Z]([a-z]|\-)+|\s(\w|\-)+/g);
+    console.log(arr);
+
+  arr = arr.map(elem => elem.trim());
+  let newStr = arr.join('-').toLowerCase();
+   
+  console.log(newStr);
+  return newStr;
+}
+
+spinalCase('AllThe-small Things');
+
+//spinalCase('This Is Spinal Tap');
