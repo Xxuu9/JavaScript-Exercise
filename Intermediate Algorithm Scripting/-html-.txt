@@ -1,0 +1,11 @@
+function convertHTML(str) {
+  let dict = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'};
+  for (var key in dict) {
+          //console.log(key, dict[key]);
+          str = str.replaceAll(key, dict[key]);
+          console.log(str)
+  }  
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
