@@ -1,0 +1,18 @@
+function translatePigLatin(str) {
+  var RegExp1 = /^(a|e|i|o|u)\w+/;
+  var RegExp2 = /(a|e|i|o|u)/;
+  if(RegExp1.test(str)){
+      return str + "way";
+  }
+  else{
+    let index = str.search(RegExp2);
+    if (index == -1){
+      return str + "ay";
+    }
+    else{
+      return str.slice(index) + str.slice(0, index) + "ay";
+    }
+  }
+}
+
+translatePigLatin("consonant");
