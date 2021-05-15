@@ -1,0 +1,27 @@
+function sumFibs(num) {
+  let fib = fibs(num);
+  console.log(fib);
+  let sum = 0;
+  sum = fib.filter(elem => elem % 2 != 0).reduce((sum,elem) => sum+elem,0);
+  console.log(sum);
+  return sum;
+}
+
+function fibs(num){
+  let fib = [];
+  fib[0] = 1;
+  fib[1] = 1;
+  for (let i = 2; i <= num; i++) {
+    if (fib[i - 2] + fib[i - 1] > num){
+      break;
+    }
+    else{
+      fib[i] = fib[i - 2] + fib[i - 1];
+    }
+  }
+  //console.log(fib);
+  return fib;
+}
+sumFibs(75024);
+sumFibs(75025);
+//fibs(10);
