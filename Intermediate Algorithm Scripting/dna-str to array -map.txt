@@ -1,0 +1,31 @@
+function pairElement(str) {
+  let arr = str.split('');
+  let resultArr = arr.map((letter) => {
+      let elem = [];
+      switch(letter){
+        case 'A':
+          elem = ['A','T'];
+          break;
+        case 'G':
+          elem = ['G','C'];
+          break;
+        case 'C':
+          elem = ['C','G'];
+          break;
+        case 'T':
+          elem = ['T','A'];
+          break;
+
+      }
+      
+      return elem;
+  }
+   
+  );
+  
+  return resultArr;
+}
+
+
+
+pairElement("GCG");
