@@ -1,0 +1,43 @@
+var Person = function(firstAndLast) {
+  // 只修改这一行下面的代码
+  // 完成下面的方法，其余的执行类似
+  var arr = firstAndLast.split(' ');
+  var firstName = arr[0];
+  var lastName = arr[1];
+  
+   this.getFullName = function() {
+      return firstName +' ' + lastName;
+   };
+
+   this.getFirstName = function() {
+      return firstName;
+   };
+
+   this.getLastName = function() {
+     return lastName;
+   };
+
+   this.setFullName = function(fullName) {
+     fullName = fullName;
+   };
+
+   this.setLastName = function(last) {
+     lastName = last;
+   };
+
+   this.setFirstName = function(first) {
+     firstName = first;
+   };
+
+   this.setFullName = function(firstAndLast){
+      var arr = firstAndLast.split(' ');
+      firstName = arr[0];
+      lastName = arr[1];
+    };
+ 
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+bob.setFirstName("Haskell");
+bob.getFullName();
