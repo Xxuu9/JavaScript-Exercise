@@ -1,0 +1,19 @@
+function addTogether() {
+  let sum;
+  let arr = [...arguments]; // Create array from arguments
+  
+  // Function to check if the argument is a number to keep it DRY
+  const checkNumber = value => typeof value === "number" ? true : false
+
+  if (arr.length === 2) {
+    // Check arguments. If both come back true, return the total with reduce() otherwise return undefined
+  	return checkNumber(arr[0]) && checkNumber(arr[1]) ? arr.reduce((total, amount) => total + amount) : undefined
+  } else {
+    // Check first argument. If true return a function and catch the second argument. Then also check
+    // the second argument if it is a number. If it is not a number it will return undefined. If true 
+    // it returns the sum of both arguments otherwise it returns undefined.
+  	return checkNumber(arr[0]) ? sum = (num) => checkNumber(num) ? num + arr[0] : undefined : undefined
+  }
+}
+
+console.log(addTogether(2)(3)); // returns 5
