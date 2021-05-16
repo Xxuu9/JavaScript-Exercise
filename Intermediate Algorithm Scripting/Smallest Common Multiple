@@ -1,0 +1,90 @@
+function smallestCommons(arr) {
+  let startNum ;
+  let endNum ;
+  let newArr = [];
+  
+  if(arr[0] > arr[1]){
+    startNum = arr[1];
+    endNum = arr[0];
+  }else{
+    startNum = arr[0];
+    endNum = arr[1];
+  }
+
+  for (let i=startNum; i<=endNum; i++){
+      newArr.push(i);
+  }
+
+  // 两两求最小公倍数
+  let lcm;
+  for(let i = 1; i <= newArr.length-1; i++){
+    if (i == 1){
+      lcm = leastCommonMultiple(newArr[i-1], newArr[i]);
+    }
+    else{
+      lcm = leastCommonMultiple(lcm, newArr[i])
+    }
+    //console.log(i, lcm);
+  }
+  return lcm;
+}
+// 求最大公约数
+function greatestCommonDivisor(num1, num2){
+   var primeFactorsArr1 = [];
+   var primeFactorsArr2 = [];
+   var commonArr = [];
+   primeFactors(primeFactorsArr1, num1);
+   primeFactors(primeFactorsArr2, num2);
+   findCommon(primeFactorsArr1, primeFactorsArr2, commonArr);
+   // console.log(">>", commonArr.reduce((prod, elem)=> prod * elem, 1));
+   return commonArr.reduce((prod, elem)=> prod * elem, 1);
+}
+
+// 求最小公倍数 
+// 最小公倍数 = 两个数的乘积/最大公约数
+function  leastCommonMultiple(num1, num2){
+  //console.log(num1 * num2 / greatestCommonDivisor(num1, num2));
+  return num1 * num2 / greatestCommonDivisor(num1, num2);
+}
+
+
+// 递归方法得到所有质因数
+ function primeFactors(resultArr, num){
+   for(let i = 2; i <= num; i++){
+      var isFlag = true;
+      if (num % i == 0){
+        for(let j = 2; j < i; j++){
+            if(i % j == 0){
+              isFlag = false;
+              break;
+            }
+        }
+        // 如果isFlag为true，那么说明i是质数，插入到结果array并且递归计算num/i的质因数
+        if(isFlag){
+          resultArr.push(i);
+          primeFactors(resultArr, num/i);
+          break; //这边一定要终止循环
+        }
+      }
+  }
+  return resultArr;
+ }
+
+ // 返回两个数组公有的部分
+ // 例子：[2,3,5], [2,3,7] => [2,3]
+ function findCommon(arr1, arr2, commonArr){
+   for (let i=0; i< arr1.length; i++){
+      let j = arr2.indexOf(arr1[i])
+      if ( j != -1){
+        commonArr.push(arr1[i]);
+        arr1.splice(i, 1);
+        arr2.splice(j, 1);
+        findCommon(arr1,arr2, commonArr);
+        break;
+      }
+   }
+ }
+
+// greatestCommonDivisor(4,6);
+// leastCommonMultiple(4, 6);
+smallestCommons([1, 5]);
