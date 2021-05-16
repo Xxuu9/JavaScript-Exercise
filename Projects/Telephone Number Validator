@@ -1,0 +1,15 @@
+
+ function telephoneCheck(str) {
+
+  let RegExp1 = /^[1]*[\s|-]*\d{3}[\s|-]*\d{3}[\s|-]*\d{4}$/;
+
+  let RegExp2 = /^[1]*[\s]*[(]\d{3}[)][\s]*\d{3}[\s|-]*\d{4}$/;
+
+  if (!RegExp1.test(str)) {
+    return RegExp2.test(str);
+  } else {
+    return true;
+  }
+
+}
+telephoneCheck("555-555-5555");
