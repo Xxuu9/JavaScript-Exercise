@@ -1,0 +1,27 @@
+function truthCheck(collection, pre) {
+  let isFlag = true;
+
+  // for(let i = 0 ; i < collection.length; i ++){
+  //   if(collection[i][pre] === undefined || collection[i][pre] === 0 || collection[i][pre] === "" || collection[i][pre] === null || Number.isNaN(collection[i][pre])){
+  //     isFlag = false;
+  //     break;
+  //   }else{
+  //     isFlag = true;
+      
+  //   }
+  // }
+  //console.log(isFlag);
+  //return isFlag;
+  
+   for(var i=0;i<collection.length;i++) {
+      if(!collection[i][pre]) {
+        return false;
+    }
+  }
+  return true;
+}
+
+
+
+
+truthCheck([{"single": "yes"}], "single")
