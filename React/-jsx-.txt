@@ -1,0 +1,11 @@
+const JSX = (
+  <div>
+      <h1>I am h1</h1>
+      <p>I am p element</p>
+      <ul>
+          <li>The first</li>
+          <li>The second</li>
+          <li>The third</li>
+      </ul>
+  </div>
+)
