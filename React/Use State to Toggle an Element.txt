@@ -1,0 +1,39 @@
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false
+    };
+    // 修改这行下面的代码
+    this.toggleVisibility= this.toggleVisibility.bind(this);
+    // 修改这行上面的代码
+  }
+  // 修改这行下面的代码
+    toggleVisibility() {
+      this.setState(state => {
+        if (state.visibility === true) {
+          return {visibility: false};
+        }
+        else {
+          return {visibility: true};
+        }
+      });
+  }
+  // 修改这行上面的代码
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+}
