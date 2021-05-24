@@ -1,0 +1,25 @@
+把编辑器里的正方形元素变成新月形状。 首先，把 background-color 改为 transparent，
+接着把 border-radius 属性设置成 50%，以创建一个圆形。 
+最后，更改 box-shadow 属性，使其 offset-x 为 25px，offset-y 为 10px，blur-radius 为 0，spread-radius 为 0，颜色为 blue。
+
+
+
+
+
+<style>
+  .center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 10px 0px 0px blue;
+  }
+
+</style>
+<div class="center"></div>
