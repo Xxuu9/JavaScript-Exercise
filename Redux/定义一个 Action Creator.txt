@@ -1,0 +1,7 @@
+const action = {
+  type: 'LOGIN'
+}
+// 在这里定义一个动作创建器：
+const actionCreator = () => {
+  return action;
+}
