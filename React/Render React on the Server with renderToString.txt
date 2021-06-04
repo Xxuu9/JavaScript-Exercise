@@ -1,0 +1,11 @@
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div/>
+  }
+};
+
+// 修改这行下面的代码
+ReactDOMServer.renderToString(<App/>);
