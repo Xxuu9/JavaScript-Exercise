@@ -1,0 +1,13 @@
+// 定义 ADD、addMessage()、messageReducer() 并在这里存储：
+const ADD = 'ADD'
+
+const addMessage = (message) => ({type: 'ADD', message})
+
+function messageReducer(state = [], action){
+    if(action.type == ADD){
+        return [...state, action.message]
+    };
+    return state;
+}
+
+const store = Redux.createStore(messageReducer);
