@@ -1,0 +1,9 @@
+const state = [];
+
+// 修改这行下面的代码
+
+const mapStateToProps = (state) => {
+    return {
+      messages: state
+    }
+}
