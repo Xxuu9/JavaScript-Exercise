@@ -1,0 +1,42 @@
+class DisplayMessages extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: "",
+      messages: []
+    }
+  
+  
+    this.handleChange = this.handleChange.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
+    }
+// 在这里添加 handleChange() 和 submitMessage() 方法
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
+
+  submitMessage() {
+    let newMessages = [...this.state.messages, this.state.input]
+    this.setState({
+      messages: newMessages,
+      input: ''
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Type in a new Message:</h2>
+        { /* 在这一行下面渲染一个输入框（input），按钮（button）和列表（ul） */ }
+        <input onChange = {this.handleChange} value = {this.state.input} />
+        <button onClick = {this.submitMessage}>Submit</button>
+        <ul>
+        {this.state.messages.map(msg => <li>{msg}</li>)}
+        </ul>
+        { /* 修改这行上面的代码 */ }
+      </div>
+    );
+  }
+};
