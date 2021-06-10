@@ -1,0 +1,28 @@
+
+
+使图片自适应设备尺寸
+用 CSS 来让图片自适应其实很简单。 你只需要给图片添加这些属性:
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+设置 max-width 值为 100% 可确保图片不超出父容器的范围；设置 height 属性为 auto 可以保持图片的原始宽高比。
+
+
+
+
+<style>
+.responsive-img {
+
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+
+<img class="responsive-img" src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
+<img src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
