@@ -1,0 +1,31 @@
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 500px;
+    /* align-items 的可选值包括：
+
+ flex-start：从 flex 容器的起始位置开始对齐项目。 对行来说，把项目移至容器顶部； 对列来说，是把项目移至容器左边。
+flex-end：从 flex 容器的终止位置开始对齐项目。 对行来说，把项目移至容器底部； 对列来说，把项目移至容器右边。
+center：把项目居中放置。 对行来说，垂直居中（项目距离顶部和底部的距离相等）； 对列来说，水平居中（项目距离左边和右边的距离相等）。
+stretch：拉伸项目，填满 flex 容器。 例如，排成行的项目从容器顶部拉伸到底部。 如未设置align-items的值，那么这就是默认值。
+baseline：沿基线对齐。 基线是文本相关的概念，可以认为它是字母排列的下端基准线。 */ 
+    align-items: center;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 200px;
+    font-size: 24px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 200px;
+    font-size: 18px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"><p>Hello</p></div>
+  <div id="box-2"><p>Goodbye</p></div>
+</div>
