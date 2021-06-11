@@ -1,0 +1,29 @@
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 500px;
+    /* flex-start：从 flex 容器的起始位置开始排列项目。 对行来说是把项目移至左边， 对于列是把项目移至顶部。 如未设置 justify-content 的值，那么这就是默认值。
+flex-end：从 flex 容器的终止位置开始排列项目。 对行来说是把项目移至右边， 对于列是把项目移至底部。
+space-between：项目间保留一定间距地沿主轴居中排列。 第一个和最后一个项目被放置在容器边沿。 例如，在行中第一个项目会紧贴着容器左边，最后一个项目会紧贴着容器右边，然后其他项目均匀排布。
+space-around：与space-between相似，但头尾两个项目不会紧贴容器边缘，所有项目之间的空间均匀排布。
+space-evenly：头尾两个项目不会紧贴容器边缘，所有项目之间的空间均匀排布。 */
+    justify-content: center;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 25%;
+    height: 100%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 25%;
+    height: 100%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
