@@ -1,0 +1,73 @@
+function checkCashRegister(price, cash, cid) {
+  var unitArray = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
+  var reverseCid = cid.slice().reverse();
+  var result;
+  var diff = cash - price;
+  // 如果收银机內的金额恰好等于应找回的零钱数
+  var totalCid = 0;
+  totalCid = cid.reduce((sum, element) => sum + element[1], 0).toFixed(2);
+  
+
+  if (diff == totalCid) {
+    result = {
+      "status": "CLOSED",
+      "change": cid,
+    }
+  }
+  else if (diff > totalCid){
+    result = {
+      "status": "INSUFFICIENT_FUNDS",
+      "change": [],
+    }
+  }
+  else {
+    var res = [];
+    for (var index in unitArray) {
+      var elem = unitArray[index] // [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01]
+      // elem 20 diff 96.74
+      //console.log(elem, diff, elem < diff);
+      
+      if (elem < diff) {
+        
+        var part1;
+        var temp;
+        // reverseCid[index] 60
+        part1 =  (diff > reverseCid[index][1]) ? reverseCid[index][1]: diff;
+        part1 = Math.round(part1 * 100) / 100;
+        temp = Math.floor(part1 / elem);
+        //console.log(temp, temp * elem);
+        diff = diff - temp * elem;
+        diff = Math.round(diff * 100) / 100;
+        res.push([reverseCid[index][0], temp * elem]);
+        // console.log(res);
+      }
+    }
+ // console.log(res);
+    if (diff != 0) {
+      result = {
+        "status": "INSUFFICIENT_FUNDS",
+        "change": [],
+      }
+    }
+    else{
+      result = {
+        "status": "OPEN",
+        "change": res,
+      }
+    }
+
+
+
+
+  }
+
+console.log(result);
+
+
+  return result;
+}
+//checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])
+
+// checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+// checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]])
+checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]])
