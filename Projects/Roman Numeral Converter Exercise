@@ -1,0 +1,48 @@
+function convertToRoman(num) {
+  var arrayNum = num.toString().split('');
+  //console.log(arrayNum);
+  var mapArray = [
+    ["I", "V", "X"],
+    ["X", "L", "C"],
+    ["C", "D", "M"],
+    ["M", "", ""],
+  ]
+  var result = [];
+  for (var index in arrayNum.reverse()){
+      var temp = base(arrayNum[index], mapArray[index][0], mapArray[index][1], mapArray[index][2]);
+      result.unshift(temp);
+  }
+ //console.log(result.join(""));
+  return result.join("")
+  
+}
+
+//I V X 个位数
+//X L C 十位数
+//C D M 百位数
+//M     千位数
+function base(singleNum, symbolOne, symbolFive, symbolTen) {
+  var result = ""
+  if (singleNum <=3){
+    for (var i=1; i<=singleNum; i++){
+      result += symbolOne
+    }
+  }else if(singleNum == 4){
+    result = symbolOne + symbolFive 
+  }else if(singleNum <= 8 && singleNum >= 5){
+    result = symbolFive;
+    for (var i=0; i < singleNum-5; i++){
+      result += symbolOne;
+    }
+  }else if(singleNum == 9){
+     result = symbolOne + symbolTen; 
+  }
+
+  return result
+}
+
+// for(var i = 1; i <= 10 ; i ++){
+//   console.log(i, base(i, "I", "V", "X"));
+// }
+
+convertToRoman(36);
