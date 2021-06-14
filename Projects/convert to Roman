@@ -1,0 +1,47 @@
+
+function convertToRoman(num) {
+ var array = num.toString().split("");
+ console.log("array:",array);
+ var result = "";
+ var reverseArray = array.reverse();
+ console.log("reverseArray:",reverseArray);
+ var romanArray = [["I","V","X"],["X","L","C"],["C","D","M"],["M","",""]];
+ var resultArray = [];
+ 
+ for(var i = 0 ; i < array.length; i ++){
+  var temp = singleNumberConvertToRoman(reverseArray[i],romanArray[i][0], romanArray[i][1], romanArray[i][2]);
+  resultArray.unshift(temp);
+ 
+}
+ result = resultArray.join("");
+
+
+ return result;
+}
+
+function singleNumberConvertToRoman(num, romanOne, romanFive, romanTen){
+  var singleRoman = "";
+  console.log("num:" ,num);
+  console.log("romanOne:" ,romanOne);
+  console.log("romanFive:" ,romanFive);
+  console.log("romanTen:" ,romanTen);
+
+  if(num <= 3){
+    for(var i = 1; i <= num; i++){
+        singleRoman += romanOne;
+    }
+  }else if(num == 4){
+        singleRoman = romanOne + romanFive;
+  }else if(num >= 5 && num <= 8){
+        singleRoman = romanFive;
+        for(var i = 0; i < num - 5; i++){
+          singleRoman += romanOne;
+      }
+  }else if(num == 9){
+        singleRoman = romanOne + romanTen;
+  }
+  return singleRoman;
+}
+
+
+convertToRoman(2);
