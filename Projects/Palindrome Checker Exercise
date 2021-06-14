@@ -1,0 +1,20 @@
+function palindrome(str) {
+ // 先后去除空格和非数字字母的字符
+  var newStr = str.replace(/\s/g,"").replace(/[^a-zA-Z0-9]/g,"").toLowerCase();
+  //判断翻转后的字符串是否与原字符串相等
+  var reverStr = newStr.split("").reverse().join("");
+   if(reverStr === newStr){
+      return true;
+   }
+   else{
+     return false;
+  } 
+}
+
+
+
+
+
+palindrome("eye");
+palindrome("ey34@#$ e");
+palindrome("e ASF!@#ye");
