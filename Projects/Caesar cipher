@@ -1,0 +1,27 @@
+function rot13(str) {
+  var resultArr = [];
+  var resultStr = "";
+
+  
+    for(var i = 0 ; i < str.length; i++){
+    for(var j = 0; j < str[i].length; j++){
+       var newAscii = str[i][j].charCodeAt();
+       if(newAscii >= 65 && newAscii <= 90){
+         var temp = (newAscii + 13 -65) % 26 + 65;
+         var resultLetter = String.fromCharCode(temp);
+         resultArr.push(resultLetter);
+       }else{
+         resultArr.push(str[i][j]);
+       }      
+    }
+  }
+  
+  resultStr = resultArr.join("");
+  console.log(resultStr);
+ 
+  return resultStr;
+}
+
+rot13("SERR PBQR PNZC");
+rot13("SERR CVMMN!");
+
