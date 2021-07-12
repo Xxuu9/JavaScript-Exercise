@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page</title>
+</head>
+<body>
+    <nav id="navbar">
+      <a href="#" class="nav-brand">Todo app</a>
+      <ul>
+        <li class="nav-item"><a href="about.html">About us</a></li>
+        <li><a href="" class="nav-item btn btn-default">Register</a></li>
+      </ul>
+    </nav>
+
+    <div class="container" id="main">
+        <p>Add a todo</p>
+        <form id="todo-form">
+            <label for="todo-title">Todo</label>
+            <input id="todo-title" type="text" placeholder="Enter your todo">
+            <div>
+                <label for="todo-category">Category</label>
+                <select id="todo-category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                </select>
+            </div>
+                <input type="submit" id="button-add" value="Add" class="btn btn-outline">
+        </form>
+        <hr />
+        <h3>Todos</h3>
+        <ul id="todos-list"></ul>
+    </div>
+
+    <footer id="footer-wrapper">
+        <a href="about.html" target="_blank">About us</a>
+        <a href="contact.html" target="_blank">Contact us</a>
+    </footer>
+</body>
+</html>
